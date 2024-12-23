@@ -1,32 +1,24 @@
 package com.scaler.decnewproject.models;
 
-public class Products {
-    private Long id;
+import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToOne;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+public class Products extends BaseModel {
     private String title;
     private String description;
     private Double price;
     private String imageUrl;
+    @ManyToOne
     private Category category;
-
-    public Products() {
-    }
-
-    public Products(Long id, String title, String description, Double price, String imageUrl, Category category) {
-        this.id = id;
-        this.title = title;
-        this.description = description;
-        this.price = price;
-        this.imageUrl = imageUrl;
-        this.category = category;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getTitle() {
         return title;
@@ -67,6 +59,4 @@ public class Products {
     public void setCategory(Category category) {
         this.category = category;
     }
-
-
 }
